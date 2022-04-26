@@ -1,0 +1,3 @@
+
+rootProject.name = 'iroha2_java_sample'
+include('app')

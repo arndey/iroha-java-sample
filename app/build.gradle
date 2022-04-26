@@ -1,0 +1,32 @@
+plugins {
+    id 'application'
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(8))
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation files("libs/model-${iroha2Version}.jar")
+    implementation files("libs/client-${iroha2Version}.jar")
+    implementation files("libs/admin-client-${iroha2Version}.jar")
+    implementation files("libs/block-${iroha2Version}.jar")
+    implementation files("libs/test-tools-${iroha2Version}.jar")
+    implementation files("libs/testcontainers-${iroha2Version}.jar")
+}
+
+application {
+    mainClass = 'jp.co.soramitsu.iroha2.sample.App'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
